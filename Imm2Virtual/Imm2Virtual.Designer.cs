@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(I2VFrm));
             I2VTab = new TabControl();
-            conversionPanel = new TabPage();
+            ConversionPanel = new TabPage();
             ConversionGB = new GroupBox();
             KOCImg = new PictureBox();
             OKCImg = new PictureBox();
@@ -47,9 +47,9 @@
             SelectDestinationImagePathBtn = new Button();
             SourceImagePathTxt = new TextBox();
             SelectSourceImagePathBtn = new Button();
-            Log = new TabPage();
+            LogPanel = new TabPage();
             logTxt = new TextBox();
-            tabPage1 = new TabPage();
+            ConfigurationPanel = new TabPage();
             KOVBOXImg = new PictureBox();
             OKVBOXImg = new PictureBox();
             KOAIMImg = new PictureBox();
@@ -69,7 +69,7 @@
             SelectAIMFileDialog = new OpenFileDialog();
             SelectVBOXFileDialog = new OpenFileDialog();
             I2VTab.SuspendLayout();
-            conversionPanel.SuspendLayout();
+            ConversionPanel.SuspendLayout();
             ConversionGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)KOCImg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OKCImg).BeginInit();
@@ -79,8 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)OKDImg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)KOSImg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OKSImg).BeginInit();
-            Log.SuspendLayout();
-            tabPage1.SuspendLayout();
+            LogPanel.SuspendLayout();
+            ConfigurationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)KOVBOXImg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OKVBOXImg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)KOAIMImg).BeginInit();
@@ -90,34 +90,34 @@
             // 
             // I2VTab
             // 
-            I2VTab.Controls.Add(conversionPanel);
-            I2VTab.Controls.Add(Log);
-            I2VTab.Controls.Add(tabPage1);
+            I2VTab.Controls.Add(ConversionPanel);
+            I2VTab.Controls.Add(LogPanel);
+            I2VTab.Controls.Add(ConfigurationPanel);
             I2VTab.Location = new Point(12, 12);
             I2VTab.Name = "I2VTab";
             I2VTab.SelectedIndex = 0;
             I2VTab.Size = new Size(762, 330);
             I2VTab.TabIndex = 1;
             // 
-            // conversionPanel
+            // ConversionPanel
             // 
-            conversionPanel.Controls.Add(ConversionGB);
-            conversionPanel.Controls.Add(KODImg);
-            conversionPanel.Controls.Add(OKDImg);
-            conversionPanel.Controls.Add(KOSImg);
-            conversionPanel.Controls.Add(OKSImg);
-            conversionPanel.Controls.Add(ConvertBtn);
-            conversionPanel.Controls.Add(DestinationImagePathTxt);
-            conversionPanel.Controls.Add(SelectDestinationImagePathBtn);
-            conversionPanel.Controls.Add(SourceImagePathTxt);
-            conversionPanel.Controls.Add(SelectSourceImagePathBtn);
-            conversionPanel.Location = new Point(4, 24);
-            conversionPanel.Name = "conversionPanel";
-            conversionPanel.Padding = new Padding(3);
-            conversionPanel.Size = new Size(754, 302);
-            conversionPanel.TabIndex = 0;
-            conversionPanel.Text = "Conversione immagine";
-            conversionPanel.UseVisualStyleBackColor = true;
+            ConversionPanel.Controls.Add(ConversionGB);
+            ConversionPanel.Controls.Add(KODImg);
+            ConversionPanel.Controls.Add(OKDImg);
+            ConversionPanel.Controls.Add(KOSImg);
+            ConversionPanel.Controls.Add(OKSImg);
+            ConversionPanel.Controls.Add(ConvertBtn);
+            ConversionPanel.Controls.Add(DestinationImagePathTxt);
+            ConversionPanel.Controls.Add(SelectDestinationImagePathBtn);
+            ConversionPanel.Controls.Add(SourceImagePathTxt);
+            ConversionPanel.Controls.Add(SelectSourceImagePathBtn);
+            ConversionPanel.Location = new Point(4, 24);
+            ConversionPanel.Name = "ConversionPanel";
+            ConversionPanel.Padding = new Padding(3);
+            ConversionPanel.Size = new Size(754, 302);
+            ConversionPanel.TabIndex = 0;
+            ConversionPanel.Text = "Image conversion";
+            ConversionPanel.UseVisualStyleBackColor = true;
             // 
             // ConversionGB
             // 
@@ -283,16 +283,16 @@
             SelectSourceImagePathBtn.UseVisualStyleBackColor = true;
             SelectSourceImagePathBtn.Click += SelectSourceImagePathButton_Click;
             // 
-            // Log
+            // LogPanel
             // 
-            Log.Controls.Add(logTxt);
-            Log.Location = new Point(4, 24);
-            Log.Name = "Log";
-            Log.Padding = new Padding(3);
-            Log.Size = new Size(754, 302);
-            Log.TabIndex = 1;
-            Log.Text = "Log";
-            Log.UseVisualStyleBackColor = true;
+            LogPanel.Controls.Add(logTxt);
+            LogPanel.Location = new Point(4, 24);
+            LogPanel.Name = "LogPanel";
+            LogPanel.Padding = new Padding(3);
+            LogPanel.Size = new Size(754, 302);
+            LogPanel.TabIndex = 1;
+            LogPanel.Text = "Log";
+            LogPanel.UseVisualStyleBackColor = true;
             // 
             // logTxt
             // 
@@ -303,24 +303,24 @@
             logTxt.Size = new Size(742, 290);
             logTxt.TabIndex = 0;
             // 
-            // tabPage1
+            // ConfigurationPanel
             // 
-            tabPage1.Controls.Add(KOVBOXImg);
-            tabPage1.Controls.Add(OKVBOXImg);
-            tabPage1.Controls.Add(KOAIMImg);
-            tabPage1.Controls.Add(OKAIMImg);
-            tabPage1.Controls.Add(VBOXPathTxt);
-            tabPage1.Controls.Add(AIMPathTxt);
-            tabPage1.Controls.Add(SelectVBOXPathBtn);
-            tabPage1.Controls.Add(SelectAIMPathBtn);
-            tabPage1.Controls.Add(EAgb);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(754, 302);
-            tabPage1.TabIndex = 2;
-            tabPage1.Text = "Configuration";
-            tabPage1.UseVisualStyleBackColor = true;
+            ConfigurationPanel.Controls.Add(KOVBOXImg);
+            ConfigurationPanel.Controls.Add(OKVBOXImg);
+            ConfigurationPanel.Controls.Add(KOAIMImg);
+            ConfigurationPanel.Controls.Add(OKAIMImg);
+            ConfigurationPanel.Controls.Add(VBOXPathTxt);
+            ConfigurationPanel.Controls.Add(AIMPathTxt);
+            ConfigurationPanel.Controls.Add(SelectVBOXPathBtn);
+            ConfigurationPanel.Controls.Add(SelectAIMPathBtn);
+            ConfigurationPanel.Controls.Add(EAgb);
+            ConfigurationPanel.Location = new Point(4, 24);
+            ConfigurationPanel.Name = "ConfigurationPanel";
+            ConfigurationPanel.Padding = new Padding(3);
+            ConfigurationPanel.Size = new Size(754, 302);
+            ConfigurationPanel.TabIndex = 2;
+            ConfigurationPanel.Text = "Configuration";
+            ConfigurationPanel.UseVisualStyleBackColor = true;
             // 
             // KOVBOXImg
             // 
@@ -489,8 +489,8 @@
             Text = "Imm2Virtual 3.0 - Francesco Chiffi - Università degli Studi di Bari \"Aldo Moro\"";
             FormClosing += I2VFrm_FormClosing;
             I2VTab.ResumeLayout(false);
-            conversionPanel.ResumeLayout(false);
-            conversionPanel.PerformLayout();
+            ConversionPanel.ResumeLayout(false);
+            ConversionPanel.PerformLayout();
             ConversionGB.ResumeLayout(false);
             ConversionGB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)KOCImg).EndInit();
@@ -501,10 +501,10 @@
             ((System.ComponentModel.ISupportInitialize)OKDImg).EndInit();
             ((System.ComponentModel.ISupportInitialize)KOSImg).EndInit();
             ((System.ComponentModel.ISupportInitialize)OKSImg).EndInit();
-            Log.ResumeLayout(false);
-            Log.PerformLayout();
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
+            LogPanel.ResumeLayout(false);
+            LogPanel.PerformLayout();
+            ConfigurationPanel.ResumeLayout(false);
+            ConfigurationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)KOVBOXImg).EndInit();
             ((System.ComponentModel.ISupportInitialize)OKVBOXImg).EndInit();
             ((System.ComponentModel.ISupportInitialize)KOAIMImg).EndInit();
@@ -517,8 +517,8 @@
         #endregion
 
         private TabControl I2VTab;
-        private TabPage conversionPanel;
-        private TabPage Log;
+        private TabPage ConversionPanel;
+        private TabPage LogPanel;
         private TextBox logTxt;
         private Button SelectSourceImagePathBtn;
         private TextBox SourceImagePathTxt;
@@ -539,7 +539,7 @@
         private PictureBox OKCImg;
         private PictureBox KOMImg;
         private PictureBox OKMImg;
-        private TabPage tabPage1;
+        private TabPage ConfigurationPanel;
         private GroupBox EAgb;
         private Label AIMlbl;
         private Label VVlbl;
