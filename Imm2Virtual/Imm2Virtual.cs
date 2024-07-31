@@ -161,12 +161,17 @@ namespace Imm2Virtual
                 {
                     //KO
                     //Info
-                    MessageBox.Show("Converted " + ImagePhysicalDisk, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Not converted " + ImagePhysicalDisk, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     //Logging
                     logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - Error converting " + ImagePhysicalDisk + System.Environment.NewLine;
                 }
             }
+
+            //Disabling buttons
+            SelectSourceImagePathBtn.Enabled = false;
+            SelectDestinationImagePathBtn.Enabled = false;
+            ConvertBtn.Enabled = false;
 
         }
 
