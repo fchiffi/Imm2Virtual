@@ -465,7 +465,7 @@
             // 
             // SelectDestinationImageFileDialog
             // 
-            SelectDestinationImageFileDialog.DefaultExt = "vmdk";
+            SelectDestinationImageFileDialog.DefaultExt = "vdi";
             // 
             // SelectAIMFileDialog
             // 
@@ -481,7 +481,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(785, 355);
+            ClientSize = new Size(785, 357);
             Controls.Add(I2VTab);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;

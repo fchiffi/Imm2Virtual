@@ -1,6 +1,7 @@
 using imm2Virtual;
 using System.Configuration;
 using System.Management;
+using static System.Windows.Forms.DataFormats;
 
 
 namespace Imm2Virtual
@@ -138,14 +139,18 @@ namespace Imm2Virtual
                 logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - Converting " + ImagePhysicalDisk + System.Environment.NewLine;
 
                 //Call VirtualBox to convert image
+                Guid uuid = Guid.NewGuid();
+                
                 string path = VBOXPathTxt.Text;
-                string parameters = "internalcommands createrawvmdk -filename \"" + DestinationImagePathTxt.Text + "\" -rawdisk " + ImagePhysicalDisk;
+                //toolStripProgressBar.
+                //string parameters = "internalcommands createrawvmdk -filename \"" + DestinationImagePathTxt.Text + "\" -rawdisk " + ImagePhysicalDisk;
+                string parameters = " convertfromraw " + ImagePhysicalDisk + " \"" + DestinationImagePathTxt.Text + "\" --format VDI --uuid=" + uuid.ToString();
                 string output = ExternalApplicationHelper.LaunchExternalApplication(path, parameters);
 
                 //Logging
                 logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - VirtualBox returns: " + output;
 
-                if (output.Contains("successfully."))
+                if (output.Contains("Creating"))
                 {
                     //OK
                     //Info
@@ -295,5 +300,6 @@ namespace Imm2Virtual
                 this.ExternalAppsControl();
             }
         }
-    }
+
+     }
 }
