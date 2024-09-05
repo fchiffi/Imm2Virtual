@@ -93,7 +93,7 @@
             I2VTab.Controls.Add(ConversionPanel);
             I2VTab.Controls.Add(LogPanel);
             I2VTab.Controls.Add(ConfigurationPanel);
-            I2VTab.Location = new Point(12, 12);
+            I2VTab.Location = new Point(2, 1);
             I2VTab.Name = "I2VTab";
             I2VTab.SelectedIndex = 0;
             I2VTab.Size = new Size(762, 330);
@@ -300,6 +300,7 @@
             logTxt.Multiline = true;
             logTxt.Name = "logTxt";
             logTxt.ReadOnly = true;
+            logTxt.ScrollBars = ScrollBars.Both;
             logTxt.Size = new Size(742, 290);
             logTxt.TabIndex = 0;
             // 
@@ -481,11 +482,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(785, 357);
+            ClientSize = new Size(764, 332);
             Controls.Add(I2VTab);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "I2VFrm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Imm2Virtual 3.0 - Francesco Chiffi - Università degli Studi di Bari \"Aldo Moro\"";
             FormClosing += I2VFrm_FormClosing;
             I2VTab.ResumeLayout(false);

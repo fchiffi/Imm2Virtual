@@ -140,27 +140,46 @@ namespace Imm2Virtual
 
                 //Call VirtualBox to convert image
                 Guid uuid = Guid.NewGuid();
-                
+
                 string path = VBOXPathTxt.Text;
-                //toolStripProgressBar.
-                //string parameters = "internalcommands createrawvmdk -filename \"" + DestinationImagePathTxt.Text + "\" -rawdisk " + ImagePhysicalDisk;
                 string parameters = " convertfromraw " + ImagePhysicalDisk + " \"" + DestinationImagePathTxt.Text + "\" --format VDI --uuid=" + uuid.ToString();
                 string output = ExternalApplicationHelper.LaunchExternalApplication(path, parameters);
 
-                //Logging
-                logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - VirtualBox returns: " + output;
+                //Logging only VBox output
+                if (!output.Contains(""))
+                { 
+                    //Logging
+                    logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - VirtualBox returns: " + output;
+                }
 
-                if (output.Contains("Creating"))
+                if (output.Contains(""))
                 {
                     //OK
                     //Info
-                    MessageBox.Show("Converted " + ImagePhysicalDisk, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FileInfo fi = new FileInfo(DestinationImagePathTxt.Text);
 
-                    //Logging
-                    logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - Converted " + ImagePhysicalDisk + System.Environment.NewLine;
+                    if (fi.Exists)
+                    {
+                        Decimal FileSize = Decimal.Divide(fi.Length, 1073741824);
 
-                    //View check
-                    KOCImg.Hide();
+                        MessageBox.Show("Converted " + ImagePhysicalDisk + " in file: " + DestinationImagePathTxt.Text + " Size: " + String.Format("{0:##.##} GB", FileSize), "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //Logging
+                        logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - Converted " + ImagePhysicalDisk + " in file: " + DestinationImagePathTxt.Text + " Size: " + String.Format("{0:##.##} GB", FileSize) + System.Environment.NewLine;
+
+                        //View check
+                        KOCImg.Hide();
+                    }
+                    else
+                    {
+                        //KO
+                        //Info
+                        MessageBox.Show("Not converted " + ImagePhysicalDisk, "Notify", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //Logging
+                        logTxt.Text += "[" + DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss") + " UTC] - [" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "] - Error converting " + ImagePhysicalDisk + System.Environment.NewLine;
+
+                    }
                 }
                 else
                 {
